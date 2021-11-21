@@ -1,0 +1,43 @@
+runtime: python37
+
+# you can use default bucket name which will be created by app engine
+# or you can create your own bucket in the same project
+
+STATCAN:
+  API_URL_BASE: "https://www150.statcan.gc.ca/t1/wds/rest/"
+  HEADERS: {'Content-Type': 'application/json'}  
+  SERIES_INFO:
+    API_NAME: "getSeriesInfoFromCubePidCoord"
+    ProductId: 33100163
+    Coordinate: "1.25.0.0.0.0.0.0.0.0"
+  LATEST_N_PERIOD:
+    API_NAME: "getDataFromCubePidCoordAndLatestNPeriods"
+    EXCHANGE_RATE: "[{\"productId\": 33100163, \"coordinate\": \"1.25.0.0.0.0.0.0.0.0\", \"latestN\":49}]"
+    CPI_ALL: "[{\"productId\": 18100004, \"coordinate\": \"2.2.0.0.0.0.0.0.0.0\", \"latestN\":49}]"
+    CPI_XGAS: "[{\"productId\": 18100004, \"coordinate\": \"2.302.0.0.0.0.0.0.0.0\", \"latestN\":49}]"
+    CPI_COMMON: "[{\"productId\": 18100256, \"coordinate\": \"1.1.0.0.0.0.0.0.0.0\", \"latestN\":49}]"
+    CPI_MEDIAN: "[{\"productId\": 18100256, \"coordinate\": \"1.2.0.0.0.0.0.0.0.0\", \"latestN\":49}]"
+    CPI_TRIM: "[{\"productId\": 18100256, \"coordinate\": \"1.3.0.0.0.0.0.0.0.0\", \"latestN\":49}]"
+  
+  LATEST_ONE:
+    API_NAME: "getDataFromCubePidCoordAndLatestNPeriods"
+    EXCHANGE_RATE: "[{\"productId\": 33100163, \"coordinate\": \"1.25.0.0.0.0.0.0.0.0\", \"latestN\":1}]"
+    CPI_ALL: "[{\"productId\": 18100004, \"coordinate\": \"2.2.0.0.0.0.0.0.0.0\", \"latestN\":1}]"
+    CPI_XGAS: "[{\"productId\": 18100004, \"coordinate\": \"2.302.0.0.0.0.0.0.0.0\", \"latestN\":1}]"
+    CPI_COMMON: "[{\"productId\": 18100256, \"coordinate\": \"1.1.0.0.0.0.0.0.0.0\", \"latestN\":1}]"
+    CPI_MEDIAN: "[{\"productId\": 18100256, \"coordinate\": \"1.2.0.0.0.0.0.0.0.0\", \"latestN\":1}]"
+    CPI_TRIM: "[{\"productId\": 18100256, \"coordinate\": \"1.3.0.0.0.0.0.0.0.0\", \"latestN\":1}]"
+
+BQ_TBLS:
+    SERIES_INFO: "series_info"
+    EXCHANGE_RATE: "avg_foreign_xchg_rates"
+    CPI_ALL: "cpi_canada_all_items"
+    CPI_XGAS: "cpi_canada_all_excl_gasoline"
+    CPI_COMMON: "core_inflation_cpi_common" 
+    CPI_MEDIAN: "core_inflation_cpi_median"
+    CPI_TRIM: "core_inflation_cpi_trim"
+
+SCHEMA:
+    SERIES_INFO: "json_schema_files/series_info_schema.json"
+    EXCHANGE_RATE: "json_schema_files/exchange_rate_schema.json"
+    CPI: "json_schema_files/cpi_all_schema.json"

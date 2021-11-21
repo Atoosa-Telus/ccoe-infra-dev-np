@@ -1,0 +1,38 @@
+# use default bucket name which will be created by app
+
+Project:
+    logging:
+        labels:
+            env: pr
+        lifecycleState: ACTIVE
+        name: cio-logging-storage-1b866dc7
+        parent:
+            id: '323593592947'
+            type: folder
+        projectId: cio-logging-storage-1b866dc7
+        projectNumber: '336915158077'
+
+    workbench:
+        labels:
+            bundle: ai-workbench
+            cost-center: '23919'
+            env: pr
+            monthly-budget: '100'
+        lifecycleState: ACTIVE
+        name: atoosa-wb-v2-pr
+        parent:
+            id: '1021680420667'
+            type: folder
+        projectId: atoosa-wb-v2-pr-656b47
+        projectNumber: '66950319389'
+
+BIGQUERY:
+    logging:
+        datasets:
+            - belgaroth_sink_data     
+            - gidc_sink_data          
+            - lab_sink_data           
+            - nfv_sink_data           
+            - shared_infra_sink_data  
+            - tsbt_sink_data   
+

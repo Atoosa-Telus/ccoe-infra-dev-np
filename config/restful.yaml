@@ -1,0 +1,2 @@
+Projects:
+  describe: "GET https://cloudresourcemanager.googleapis.com/v1/projects/"
