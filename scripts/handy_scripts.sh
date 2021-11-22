@@ -13,6 +13,12 @@ gcloud config --help
 # https://cloud.google.com/sdk/gcloud/reference/topic/formats
 # --format=json|yaml|csv|text|list
 
+# yes you can write and create BQ tables
+# you need to authenitcate using your credentials
+gcloud auth application-default login
+
+google.cloud library has the bigquery function
+
 
 # Get information about the currebt project I am owkring on 
 gcloud config list
